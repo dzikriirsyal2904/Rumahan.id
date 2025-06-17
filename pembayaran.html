@@ -71,15 +71,22 @@
 
     function bayar() {
       const metode = document.getElementById("metode").value;
-      let pesan = "";
+      const waktuTampil = `${tanggal} pukul ${waktu}`;
+      let pesanMetode = "";
 
       if (metode === "admin") {
-        pesan = "Silakan transfer ke rekening admin:\nBRI 123456789 a.n. Rumahan.id" 
+        pesanMetode = "Silakan transfer ke rekening admin:\nBRI 123456789 a.n. Rumahan.id";
       } else {
-        pesan = "Silakan siapkan pembayaran untuk diserahkan langsung kepada mitra.";
+        pesanMetode = "Silakan siapkan pembayaran untuk diserahkan langsung kepada mitra.";
       }
 
-      alert("Pembayaran berhasil diproses.\n\n" + pesan);
+      alert(
+        "✅ Pesanan Anda telah diterima.\n\n" +
+        `📍 Lokasi: ${alamat}\n🕒 Jadwal: ${waktuTampil}\n\n` +
+        pesanMetode +
+        "\n\nTerima kasih telah menggunakan Rumahan.id!"
+      );
+
       window.location.href = "index.html";
     }
   </script>
