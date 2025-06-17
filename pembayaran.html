@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pembayaran | Rumahan.id</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <header class="bg-white shadow p-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-blue-700">Rumahan.id</h1>
+    <span class="text-sm text-gray-500">Ringkasan & Pembayaran</span>
+  </header>
+
+  <main class="max-w-xl mx-auto py-10 px-4">
+    <h2 class="text-xl font-semibold mb-4 text-center">Detail Pemesanan</h2>
+    <div id="orderSummary" class="bg-white rounded-lg shadow p-4 mb-6"></div>
+
+    <h2 class="text-xl font-semibold mb-4 text-center">Rincian Pembayaran</h2>
+    <div class="bg-white rounded-lg shadow p-4">
+      <div class="flex justify-between">
+        <p>Biaya Layanan</p>
+        <p>Rp200.000</p>
+      </div>
+      <div class="flex justify-between">
+        <p>Pajak (2%)</p>
+        <p>Rp5.000</p>
+      </div>
+      <div class="flex justify-between font-bold mt-2 border-t pt-2">
+        <p>Total</p>
+        <p>Rp205.000</p>
+      </div>
+
+      <div class="mt-6 text-center">
+        <button onclick="bayar()" class="bg-green-600 text-white px-6 py-3 rounded-lg shadow hover:bg-green-700 transition">
+          Bayar Sekarang
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const layanan = params.get("layanan");
+    const alamat = params.get("alamat");
+    const tanggal = params.get("tanggal");
+    const waktu = params.get("waktu");
+    const catatan = params.get("catatan");
+    const mitra = params.get("mitra");
+
+    document.getElementById("orderSummary").innerHTML = `
+      <p><strong>Layanan:</strong> ${layanan}</p>
+      <p><strong>Alamat:</strong> ${alamat}</p>
+      <p><strong>Jadwal:</strong> ${tanggal} pukul ${waktu}</p>
+      <p><strong>Catatan:</strong> ${catatan || '-'}</p>
+      <p><strong>Mitra Jasa:</strong> ${mitra}</p>
+    `;
+
+    function bayar() {
+      alert("Pembayaran berhasil! Mitra akan segera menghubungi Anda.");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
