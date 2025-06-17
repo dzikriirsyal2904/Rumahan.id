@@ -30,12 +30,21 @@
         <p>Total</p>
         <p>Rp205.000</p>
       </div>
+    </div>
 
-      <div class="mt-6 text-center">
-        <button onclick="bayar()" class="bg-green-600 text-white px-6 py-3 rounded-lg shadow hover:bg-green-700 transition">
-          Bayar Sekarang
-        </button>
-      </div>
+    <h2 class="text-xl font-semibold mb-4 text-center mt-8">Pilih Metode Pembayaran</h2>
+    <div class="bg-white rounded-lg shadow p-4 mb-6">
+      <label class="block mb-2 font-medium">Metode:</label>
+      <select id="metode" class="w-full border rounded-lg px-4 py-2">
+        <option value="admin">Transfer ke Admin</option>
+        <option value="mitra">Bayar Langsung ke Mitra</option>
+      </select>
+    </div>
+
+    <div class="mt-6 text-center">
+      <button onclick="bayar()" class="bg-green-600 text-white px-6 py-3 rounded-lg shadow hover:bg-green-700 transition">
+        Bayar Sekarang
+      </button>
     </div>
   </main>
 
@@ -61,7 +70,16 @@
     `;
 
     function bayar() {
-      alert("Pembayaran berhasil! Mitra akan segera menghubungi Anda.");
+      const metode = document.getElementById("metode").value;
+      let pesan = "";
+
+      if (metode === "admin") {
+        pesan = "Silakan transfer ke rekening admin:\nBRI 123456789 a.n. Rumahan.id" 
+      } else {
+        pesan = "Silakan siapkan pembayaran untuk diserahkan langsung kepada mitra.";
+      }
+
+      alert("Pembayaran berhasil diproses.\n\n" + pesan);
       window.location.href = "index.html";
     }
   </script>
