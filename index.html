@@ -16,54 +16,19 @@
     <h2 class="text-xl font-semibold mb-6 text-center">Pilih Kategori Layanan</h2>
 
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-      <div class="bg-white rounded-xl shadow hover:shadow-md p-4 flex flex-col items-center">
-        🧹
-        <p class="mt-2 font-medium text-center">Cleaning Service</p>
-      </div>
-      <div class="bg-white rounded-xl shadow hover:shadow-md p-4 flex flex-col items-center">
-        🚚
-        <p class="mt-2 font-medium text-center">Pindahan Rumah</p>
-      </div>
-      <div class="bg-white rounded-xl shadow hover:shadow-md p-4 flex flex-col items-center">
-        🔌
-        <p class="mt-2 font-medium text-center">Service Elektronik</p>
-      </div>
-      <div class="bg-white rounded-xl shadow hover:shadow-md p-4 flex flex-col items-center">
-        🔧
-        <p class="mt-2 font-medium text-center">Perbaikan Pipa / Air</p>
-      </div>
-      <div class="bg-white rounded-xl shadow hover:shadow-md p-4 flex flex-col items-center">
-        🛠️
-        <p class="mt-2 font-medium text-center">Renovasi Kecil</p>
-      </div>
-      <div class="bg-white rounded-xl shadow hover:shadow-md p-4 flex flex-col items-center">
-        📐
-        <p class="mt-2 font-medium text-center">Konsultasi Pertukangan</p>
-      </div>
-      <div class="bg-white rounded-xl shadow hover:shadow-md p-4 flex flex-col items-center">
-        🦟
-        <p class="mt-2 font-medium text-center">Fogging / Serangga</p>
-      </div>
-      <div class="bg-white rounded-xl shadow hover:shadow-md p-4 flex flex-col items-center">
-        🧺
-        <p class="mt-2 font-medium text-center">Laundry Langganan</p>
-      </div>
-      <div class="bg-white rounded-xl shadow hover:shadow-md p-4 flex flex-col items-center">
-        👕
-        <p class="mt-2 font-medium text-center">Jasa Setrika</p>
-      </div>
-      <div class="bg-white rounded-xl shadow hover:shadow-md p-4 flex flex-col items-center">
-        🛒
-        <p class="mt-2 font-medium text-center">Belanja Harian Titipan</p>
-      </div>
-      <div class="bg-white rounded-xl shadow hover:shadow-md p-4 flex flex-col items-center">
-        🧽
-        <p class="mt-2 font-medium text-center">Cuci Sofa / Springbed</p>
-      </div>
-      <div class="bg-white rounded-xl shadow hover:shadow-md p-4 flex flex-col items-center">
-        🪜
-        <p class="mt-2 font-medium text-center">Pemasangan Bracket / TV</p>
-      </div>
+      <!-- Setiap item klik simpan value ke localStorage -->
+      <div onclick="pilihLayanan('Cleaning Service')" class="cursor-pointer bg-white rounded-xl shadow hover:shadow-md p-4 flex flex-col items-center">🧹<p class="mt-2 font-medium text-center">Cleaning Service</p></div>
+      <div onclick="pilihLayanan('Pindahan Rumah')" class="cursor-pointer bg-white rounded-xl shadow hover:shadow-md p-4 flex flex-col items-center">🚚<p class="mt-2 font-medium text-center">Pindahan Rumah</p></div>
+      <div onclick="pilihLayanan('Service Elektronik')" class="cursor-pointer bg-white rounded-xl shadow hover:shadow-md p-4 flex flex-col items-center">🔌<p class="mt-2 font-medium text-center">Service Elektronik</p></div>
+      <div onclick="pilihLayanan('Perbaikan Pipa')" class="cursor-pointer bg-white rounded-xl shadow hover:shadow-md p-4 flex flex-col items-center">🔧<p class="mt-2 font-medium text-center">Perbaikan Pipa</p></div>
+      <div onclick="pilihLayanan('Renovasi Kecil')" class="cursor-pointer bg-white rounded-xl shadow hover:shadow-md p-4 flex flex-col items-center">🛠️<p class="mt-2 font-medium text-center">Renovasi Kecil</p></div>
+      <div onclick="pilihLayanan('Konsultasi Pertukangan')" class="cursor-pointer bg-white rounded-xl shadow hover:shadow-md p-4 flex flex-col items-center">📐<p class="mt-2 font-medium text-center">Konsultasi Pertukangan</p></div>
+      <div onclick="pilihLayanan('Fogging / Serangga')" class="cursor-pointer bg-white rounded-xl shadow hover:shadow-md p-4 flex flex-col items-center">🦟<p class="mt-2 font-medium text-center">Fogging / Serangga</p></div>
+      <div onclick="pilihLayanan('Laundry Langganan')" class="cursor-pointer bg-white rounded-xl shadow hover:shadow-md p-4 flex flex-col items-center">🧺<p class="mt-2 font-medium text-center">Laundry Langganan</p></div>
+      <div onclick="pilihLayanan('Jasa Setrika')" class="cursor-pointer bg-white rounded-xl shadow hover:shadow-md p-4 flex flex-col items-center">👕<p class="mt-2 font-medium text-center">Jasa Setrika</p></div>
+      <div onclick="pilihLayanan('Belanja Titipan')" class="cursor-pointer bg-white rounded-xl shadow hover:shadow-md p-4 flex flex-col items-center">🛒<p class="mt-2 font-medium text-center">Belanja Titipan</p></div>
+      <div onclick="pilihLayanan('Cuci Sofa / Springbed')" class="cursor-pointer bg-white rounded-xl shadow hover:shadow-md p-4 flex flex-col items-center">🧽<p class="mt-2 font-medium text-center">Cuci Sofa / Springbed</p></div>
+      <div onclick="pilihLayanan('Pasang Bracket / TV')" class="cursor-pointer bg-white rounded-xl shadow hover:shadow-md p-4 flex flex-col items-center">🪜<p class="mt-2 font-medium text-center">Pasang Bracket / TV</p></div>
     </div>
 
     <div class="text-center mt-10">
@@ -76,5 +41,11 @@
   <footer class="text-center text-sm text-gray-500 mt-10 py-4">
     &copy; 2025 Rumahan.id — Teman Setia Urusan Rumahmu
   </footer>
+
+  <script>
+    function pilihLayanan(nama) {
+      localStorage.setItem("layananDipilih", nama);
+    }
+  </script>
 </body>
 </html>

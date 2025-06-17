@@ -16,27 +16,30 @@
     <h2 class="text-xl font-semibold mb-6 text-center">Isi Detail Pemesanan</h2>
 
     <form action="mitra.html" method="GET" class="space-y-5">
-      <!-- Layanan -->
       <div>
         <label class="block mb-1 font-medium">Pilih Layanan</label>
-        <select name="layanan" required class="w-full border rounded-lg px-4 py-2">
+        <select id="layanan" name="layanan" required class="w-full border rounded-lg px-4 py-2">
           <option value="">-- Pilih --</option>
           <option value="Cleaning Service">Cleaning Service</option>
-          <option value="Pindahan">Pindahan</option>
-          <option value="Renovasi">Renovasi</option>
-          <option value="Garansi Layanan">Garansi Layanan</option>
+          <option value="Pindahan Rumah">Pindahan Rumah</option>
           <option value="Service Elektronik">Service Elektronik</option>
+          <option value="Perbaikan Pipa">Perbaikan Pipa</option>
+          <option value="Renovasi Kecil">Renovasi Kecil</option>
           <option value="Konsultasi Pertukangan">Konsultasi Pertukangan</option>
+          <option value="Fogging / Serangga">Fogging / Serangga</option>
+          <option value="Laundry Langganan">Laundry Langganan</option>
+          <option value="Jasa Setrika">Jasa Setrika</option>
+          <option value="Belanja Titipan">Belanja Titipan</option>
+          <option value="Cuci Sofa / Springbed">Cuci Sofa / Springbed</option>
+          <option value="Pasang Bracket / TV">Pasang Bracket / TV</option>
         </select>
       </div>
 
-      <!-- Alamat -->
       <div>
         <label class="block mb-1 font-medium">Alamat Lengkap</label>
         <textarea name="alamat" required rows="3" class="w-full border rounded-lg px-4 py-2" placeholder="Contoh: Jl. Singasari IV, Bekasi Utara"></textarea>
       </div>
 
-      <!-- Tanggal & Jam -->
       <div class="flex gap-4">
         <div class="flex-1">
           <label class="block mb-1 font-medium">Tanggal</label>
@@ -48,13 +51,11 @@
         </div>
       </div>
 
-      <!-- Catatan -->
       <div>
         <label class="block mb-1 font-medium">Catatan Tambahan</label>
-        <input type="text" name="catatan" class="w-full border rounded-lg px-4 py-2" placeholder="Contoh: Rak buku jangan dibersihkan" />
+        <input type="text" name="catatan" class="w-full border rounded-lg px-4 py-2" />
       </div>
 
-      <!-- Tombol -->
       <div class="text-center pt-4">
         <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition">
           Cari Mitra Jasa
@@ -66,5 +67,13 @@
   <footer class="text-center text-sm text-gray-500 mt-10 py-4">
     &copy; 2025 Rumahan.id — Teman Setia Urusan Rumahmu
   </footer>
+
+  <script>
+    const prefilled = localStorage.getItem("layananDipilih");
+    if (prefilled) {
+      document.getElementById("layanan").value = prefilled;
+      localStorage.removeItem("layananDipilih");
+    }
+  </script>
 </body>
 </html>
