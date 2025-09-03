@@ -1,2 +1,2 @@
 # Rumahan.id
-Ini app awal dari rumahan.id
+Main Function (awal) dari rumahan.id
